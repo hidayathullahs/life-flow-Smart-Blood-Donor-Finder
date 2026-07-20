@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd web && npm run build"
+    "build": "npm install --prefix web && npm run build --prefix web && node -e \"require('fs').cpSync('web/dist', 'dist', {recursive: true})\""
   }
 }
