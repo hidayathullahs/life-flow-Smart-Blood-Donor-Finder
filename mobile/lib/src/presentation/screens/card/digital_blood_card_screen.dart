@@ -72,19 +72,19 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
                     mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                     children: [
                       pw.Text('LIFE FLOW',
-                          style: pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 14)),
+                          style: const pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 14)),
                       pw.Text('VERIFIED DONOR',
-                          style: pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 10)),
+                          style: const pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 10)),
                     ],
                   ),
                   pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
                       pw.Text(name.toUpperCase(),
-                          style: pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 18)),
+                          style: const pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 18)),
                       pw.SizedBox(height: 4),
                       pw.Text('ID: ${uid.toUpperCase()}',
-                          style: pw.TextStyle(color: const PdfColor(1.0, 1.0, 1.0, 0.8), fontSize: 10)),
+                          style: const pw.TextStyle(color: PdfColor(1.0, 1.0, 1.0, 0.8), fontSize: 10)),
                     ],
                   ),
                   pw.Row(
@@ -94,9 +94,9 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
                           pw.Text('BLOOD GROUP',
-                              style: pw.TextStyle(color: const PdfColor(1.0, 1.0, 1.0, 0.8), fontSize: 9)),
+                              style: const pw.TextStyle(color: PdfColor(1.0, 1.0, 1.0, 0.8), fontSize: 9)),
                           pw.Text(bloodGroup,
-                              style: pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 16)),
+                              style: const pw.TextStyle(color: PdfColors.white, fontWeight: pw.FontWeight.bold, fontSize: 16)),
                         ],
                       ),
                     ],
@@ -115,6 +115,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
         name: 'SmartBloodLife_Card_${uid.substring(0, 6)}.pdf',
       );
     } catch (e) {
+      if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to generate PDF: $e'), backgroundColor: Colors.redAccent),
       );

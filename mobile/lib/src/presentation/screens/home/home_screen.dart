@@ -196,7 +196,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'LIVES SAVED TOGETHER',
                                     style: TextStyle(
                                       color: AppTheme.bloodRed,

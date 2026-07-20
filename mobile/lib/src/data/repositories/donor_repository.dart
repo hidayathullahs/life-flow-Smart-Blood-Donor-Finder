@@ -140,7 +140,7 @@ class DonorRepository {
       return {
         'totalDonors': list.length,
         'activeDonors': list.where((d) => d.isAvailable).length,
-        'totalDonations': list.fold<int>(0, (sum, d) => sum + d.donationCount),
+        'totalDonations': list.fold<int>(0, (acc, d) => acc + d.donationCount),
         'uniqueCities': list.map((d) => d.city.trim().toLowerCase()).toSet().length,
       };
     } catch (e) {
