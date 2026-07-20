@@ -55,8 +55,8 @@ class AppTheme {
       titleMedium: GoogleFonts.outfit(fontWeight: FontWeight.w600, color: textColor),
       titleSmall: GoogleFonts.outfit(fontWeight: FontWeight.w600, color: textColor),
       bodyLarge: GoogleFonts.inter(fontWeight: FontWeight.w500, color: textColor),
-      bodyMedium: GoogleFonts.inter(fontWeight: FontWeight.w500, color: textColor.withValues(alpha: 0.8)),
-      bodySmall: GoogleFonts.inter(color: textColor.withValues(alpha: 0.6)),
+      bodyMedium: GoogleFonts.inter(fontWeight: FontWeight.w500, color: textColor.withOpacity(0.8)),
+      bodySmall: GoogleFonts.inter(color: textColor.withOpacity(0.6)),
     );
   }
 
@@ -139,7 +139,7 @@ class AppTheme {
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24.0),
-          side: BorderSide(color: Colors.white.withValues(alpha: 0.05), width: 1),
+          side: BorderSide(color: Colors.white.withOpacity(0.05), width: 1),
         ),
       ),
       appBarTheme: const AppBarTheme(

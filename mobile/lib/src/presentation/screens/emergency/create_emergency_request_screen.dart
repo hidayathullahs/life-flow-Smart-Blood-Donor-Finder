@@ -274,7 +274,7 @@ class _CreateEmergencyRequestScreenState extends State<CreateEmergencyRequestScr
             color: isDark ? AppTheme.darkCard : Colors.white,
             borderRadius: BorderRadius.circular(28),
             border: Border.all(
-              color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+              color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
               width: 1.5,
             ),
           ),
@@ -296,7 +296,7 @@ class _CreateEmergencyRequestScreenState extends State<CreateEmergencyRequestScr
               ),
               const SizedBox(height: 20),
               DropdownButtonFormField<String>(
-                initialValue: _selectedBloodGroup,
+                value: _selectedBloodGroup,
                 decoration: const InputDecoration(
                   labelText: 'Required Blood Group',
                   prefixIcon: Icon(Icons.water_drop_outlined, size: 20, color: AppTheme.bloodRed),
@@ -325,7 +325,7 @@ class _CreateEmergencyRequestScreenState extends State<CreateEmergencyRequestScr
             color: isDark ? AppTheme.darkCard : Colors.white,
             borderRadius: BorderRadius.circular(28),
             border: Border.all(
-              color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+              color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
               width: 1.5,
             ),
           ),
@@ -356,7 +356,7 @@ class _CreateEmergencyRequestScreenState extends State<CreateEmergencyRequestScr
               ),
               const SizedBox(height: 20),
               DropdownButtonFormField<String>(
-                initialValue: _selectedUrgency,
+                value: _selectedUrgency,
                 decoration: const InputDecoration(
                   labelText: 'Urgency Level',
                   prefixIcon: Icon(Icons.priority_high, size: 20),
@@ -375,7 +375,7 @@ class _CreateEmergencyRequestScreenState extends State<CreateEmergencyRequestScr
             color: isDark ? AppTheme.darkCard : Colors.white,
             borderRadius: BorderRadius.circular(28),
             border: Border.all(
-              color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+              color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
               width: 1.5,
             ),
           ),

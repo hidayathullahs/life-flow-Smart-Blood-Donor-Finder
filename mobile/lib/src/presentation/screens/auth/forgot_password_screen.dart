@@ -87,7 +87,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     color: isDark ? AppTheme.darkCard : Colors.white,
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(
-                      color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                      color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                       width: 1.5,
                     ),
                   ),

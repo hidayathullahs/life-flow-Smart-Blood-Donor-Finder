@@ -169,7 +169,7 @@ class _RegisterDonorScreenState extends State<RegisterDonorScreen> {
                   color: isDark ? AppTheme.darkCard : Colors.white,
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
-                    color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                    color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                     width: 1.5,
                   ),
                 ),
@@ -226,7 +226,7 @@ class _RegisterDonorScreenState extends State<RegisterDonorScreen> {
                   color: isDark ? AppTheme.darkCard : Colors.white,
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
-                    color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                    color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                     width: 1.5,
                   ),
                 ),
@@ -244,7 +244,7 @@ class _RegisterDonorScreenState extends State<RegisterDonorScreen> {
                       children: [
                         Expanded(
                           child: DropdownButtonFormField<String>(
-                            initialValue: _selectedBloodGroup,
+                            value: _selectedBloodGroup,
                             decoration: const InputDecoration(labelText: 'Blood Group'),
                             items: _bloodGroups.map((bg) => DropdownMenuItem(value: bg, child: Text(bg))).toList(),
                             onChanged: (val) => setState(() => _selectedBloodGroup = val!),
@@ -253,7 +253,7 @@ class _RegisterDonorScreenState extends State<RegisterDonorScreen> {
                         const SizedBox(width: 16),
                         Expanded(
                           child: DropdownButtonFormField<String>(
-                            initialValue: _selectedGender,
+                            value: _selectedGender,
                             decoration: const InputDecoration(labelText: 'Gender'),
                             items: _genders.map((g) => DropdownMenuItem(value: g, child: Text(g))).toList(),
                             onChanged: (val) => setState(() => _selectedGender = val!),
@@ -296,7 +296,7 @@ class _RegisterDonorScreenState extends State<RegisterDonorScreen> {
                   color: isDark ? AppTheme.darkCard : Colors.white,
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
-                    color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                    color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                     width: 1.5,
                   ),
                 ),
@@ -356,7 +356,7 @@ class _RegisterDonorScreenState extends State<RegisterDonorScreen> {
                   color: isDark ? AppTheme.darkCard : Colors.white,
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
-                    color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                    color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                     width: 1.5,
                   ),
                 ),

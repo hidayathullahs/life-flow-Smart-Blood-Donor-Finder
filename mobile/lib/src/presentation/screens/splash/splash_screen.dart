@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppTheme.bloodRed.withValues(alpha: 0.08),
+                color: AppTheme.bloodRed.withOpacity(0.08),
               ),
             ),
           ),
@@ -83,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               height: 400,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppTheme.bloodRed.withValues(alpha: 0.05),
+                color: AppTheme.bloodRed.withOpacity(0.05),
               ),
             ),
           ),
@@ -106,13 +106,13 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         borderRadius: BorderRadius.circular(32),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: isDark ? 0.4 : 0.08),
+                            color: Colors.black.withOpacity(isDark ? 0.4 : 0.08),
                             blurRadius: 32,
                             offset: const Offset(0, 16),
                           ),
                         ],
                         border: Border.all(
-                          color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                          color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                           width: 1.5,
                         ),
                       ),

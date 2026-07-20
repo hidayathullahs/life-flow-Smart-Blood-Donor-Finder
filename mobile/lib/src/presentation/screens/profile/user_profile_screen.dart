@@ -53,12 +53,12 @@ class _UserProfileScreenState extends ConsumerState<UserProfileScreen> {
                     color: isDarkMode ? AppTheme.darkCard : Colors.white,
                     borderRadius: BorderRadius.circular(28),
                     border: Border.all(
-                      color: isDarkMode ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                      color: isDarkMode ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                       width: 1.5,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: isDarkMode ? 0.2 : 0.03),
+                        color: Colors.black.withOpacity(isDarkMode ? 0.2 : 0.03),
                         blurRadius: 12,
                         offset: const Offset(0, 6),
                       ),
@@ -68,7 +68,7 @@ class _UserProfileScreenState extends ConsumerState<UserProfileScreen> {
                     children: [
                       CircleAvatar(
                         radius: 46,
-                        backgroundColor: AppTheme.bloodRed.withValues(alpha: 0.1),
+                        backgroundColor: AppTheme.bloodRed.withOpacity(0.1),
                         child: const CircleAvatar(
                           radius: 40,
                           backgroundColor: AppTheme.bloodRed,
@@ -114,12 +114,12 @@ class _UserProfileScreenState extends ConsumerState<UserProfileScreen> {
                     color: isDarkMode ? AppTheme.darkCard : Colors.white,
                     borderRadius: BorderRadius.circular(28),
                     border: Border.all(
-                      color: isDarkMode ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                      color: isDarkMode ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                       width: 1.5,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: isDarkMode ? 0.2 : 0.03),
+                        color: Colors.black.withOpacity(isDarkMode ? 0.2 : 0.03),
                         blurRadius: 12,
                         offset: const Offset(0, 6),
                       ),
@@ -131,7 +131,7 @@ class _UserProfileScreenState extends ConsumerState<UserProfileScreen> {
                         title: const Text('Dark Mode', style: TextStyle(fontWeight: FontWeight.bold)),
                         secondary: const Icon(Icons.dark_mode_outlined, color: AppTheme.bloodRed),
                         value: isDarkMode,
-                        activeThumbColor: AppTheme.bloodRed,
+                        activeColor: AppTheme.bloodRed,
                         onChanged: (_) => ref.read(darkModeProvider.notifier).toggleTheme(),
                       ),
                       Divider(height: 1, color: isDarkMode ? Colors.white10 : Colors.grey.shade100),

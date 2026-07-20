@@ -59,12 +59,12 @@ class DonorProfileScreen extends StatelessWidget {
                     color: isDark ? AppTheme.darkCard : Colors.white,
                     borderRadius: BorderRadius.circular(28),
                     border: Border.all(
-                      color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                      color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                       width: 1.5,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.03),
+                        color: Colors.black.withOpacity(isDark ? 0.2 : 0.03),
                         blurRadius: 12,
                         offset: const Offset(0, 6),
                       ),
@@ -93,7 +93,7 @@ class DonorProfileScreen extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                         decoration: BoxDecoration(
-                          color: AppTheme.bloodRed.withValues(alpha: 0.1),
+                          color: AppTheme.bloodRed.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
@@ -117,12 +117,12 @@ class DonorProfileScreen extends StatelessWidget {
                     color: isDark ? AppTheme.darkCard : Colors.white,
                     borderRadius: BorderRadius.circular(28),
                     border: Border.all(
-                      color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                      color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                       width: 1.5,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.03),
+                        color: Colors.black.withOpacity(isDark ? 0.2 : 0.03),
                         blurRadius: 12,
                         offset: const Offset(0, 6),
                       ),

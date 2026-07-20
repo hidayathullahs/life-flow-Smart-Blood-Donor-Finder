@@ -116,7 +116,7 @@ class _LiveRequestsScreenState extends State<LiveRequestsScreen> {
                   color: isDark ? const Color(0xFF1E1014) : const Color(0xFFFEF2F2),
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: AppTheme.bloodRed.withValues(alpha: 0.15),
+                    color: AppTheme.bloodRed.withOpacity(0.15),
                   ),
                 ),
                 child: Row(
@@ -149,12 +149,12 @@ class _LiveRequestsScreenState extends State<LiveRequestsScreen> {
                         color: isDark ? AppTheme.darkCard : Colors.white,
                         borderRadius: BorderRadius.circular(24),
                         border: Border.all(
-                          color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                          color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                           width: 1.5,
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.02),
+                            color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
                             blurRadius: 12,
                             offset: const Offset(0, 6),
                           ),
@@ -199,8 +199,8 @@ class _LiveRequestsScreenState extends State<LiveRequestsScreen> {
                                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                                   decoration: BoxDecoration(
                                     color: isHighUrgency 
-                                      ? AppTheme.bloodRed.withValues(alpha: 0.1) 
-                                      : AppTheme.warningOrange.withValues(alpha: 0.1),
+                                      ? AppTheme.bloodRed.withOpacity(0.1) 
+                                      : AppTheme.warningOrange.withOpacity(0.1),
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Text(

@@ -90,7 +90,7 @@ class _DonorSearchScreenState extends State<DonorSearchScreen> {
                     title: const Text('Verified Donors Only', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                     subtitle: const Text('Show only donors verified by medical centers'),
                     value: _verifiedOnly,
-                    activeThumbColor: AppTheme.bloodRed,
+                    activeColor: AppTheme.bloodRed,
                     contentPadding: EdgeInsets.zero,
                     onChanged: (val) {
                       setModalState(() => _verifiedOnly = val);
@@ -103,7 +103,7 @@ class _DonorSearchScreenState extends State<DonorSearchScreen> {
                     title: const Text('Smart Match AI', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                     subtitle: const Text('Prioritize matching donor speeds and compatibility'),
                     value: _smartMatch,
-                    activeThumbColor: AppTheme.bloodRed,
+                    activeColor: AppTheme.bloodRed,
                     contentPadding: EdgeInsets.zero,
                     onChanged: (val) {
                       setModalState(() => _smartMatch = val);
@@ -146,7 +146,7 @@ class _DonorSearchScreenState extends State<DonorSearchScreen> {
                   color: isDark ? AppTheme.darkBg : Colors.white,
                   border: Border(
                     bottom: BorderSide(
-                      color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                      color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                       width: 1.5,
                     ),
                   ),

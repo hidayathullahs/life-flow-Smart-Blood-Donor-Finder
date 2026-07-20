@@ -107,12 +107,12 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
                       border: isUser 
                           ? null 
                           : Border.all(
-                              color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                              color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                               width: 1.5,
                             ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: isUser ? 0.1 : 0.02),
+                          color: Colors.black.withOpacity(isUser ? 0.1 : 0.02),
                           blurRadius: 10,
                           offset: const Offset(0, 4),
                         ),
@@ -121,7 +121,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
                     child: Text(
                       msg['text'] as String,
                       style: TextStyle(
-                        color: isUser ? Colors.white : (isDark ? Colors.white.withValues(alpha: 0.9) : const Color(0xFF0F172A)),
+                        color: isUser ? Colors.white : (isDark ? Colors.white.withOpacity(0.9) : const Color(0xFF0F172A)),
                         fontSize: 15,
                         height: 1.4,
                       ),
@@ -206,7 +206,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
               color: isDark ? AppTheme.darkBg : Colors.white,
               border: Border(
                 top: BorderSide(
-                  color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                  color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                   width: 1.5,
                 ),
               ),
@@ -310,7 +310,7 @@ class _AiAssistantScreenState extends State<AiAssistantScreen> {
         color: isDark ? AppTheme.darkCard : Colors.white,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+          color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
           width: 1.5,
         ),
       ),

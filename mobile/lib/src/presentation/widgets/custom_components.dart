@@ -28,7 +28,7 @@ class PrimaryButton extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.bloodRed.withValues(alpha: 0.25),
+            color: AppTheme.bloodRed.withOpacity(0.25),
             blurRadius: 12,
             offset: const Offset(0, 6),
           ),
@@ -99,7 +99,7 @@ class SecondaryButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: isDark ? Colors.white.withValues(alpha: 0.15) : Colors.grey.shade300,
+          color: isDark ? Colors.white.withOpacity(0.15) : Colors.grey.shade300,
           width: 1.5,
         ),
       ),
@@ -175,7 +175,7 @@ class BloodGroupBadge extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.bloodRed.withValues(alpha: 0.2),
+            color: AppTheme.bloodRed.withOpacity(0.2),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -255,14 +255,14 @@ class GlassmorphicCard extends StatelessWidget {
         child: Container(
           padding: padding ?? const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: fallbackColor.withValues(alpha: opacity),
+            color: fallbackColor.withOpacity(opacity),
             borderRadius: finalBorderRadius,
             border: Border.fromBorderSide(
               borderSide ??
                   BorderSide(
                     color: isDark
-                        ? Colors.white.withValues(alpha: 0.08)
-                        : Colors.black.withValues(alpha: 0.05),
+                        ? Colors.white.withOpacity(0.08)
+                        : Colors.black.withOpacity(0.05),
                     width: 1.5,
                   ),
             ),
@@ -457,12 +457,12 @@ class DonorCardWidget extends StatelessWidget {
           color: isDark ? AppTheme.darkCard : Colors.white,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            color: isDark ? Colors.white.withValues(alpha: 0.04) : Colors.black.withValues(alpha: 0.03),
+            color: isDark ? Colors.white.withOpacity(0.04) : Colors.black.withOpacity(0.03),
             width: 1.5,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: isDark ? 0.15 : 0.02),
+              color: Colors.black.withOpacity(isDark ? 0.15 : 0.02),
               blurRadius: 16,
               offset: const Offset(0, 8),
             ),
@@ -571,7 +571,7 @@ class DonorCardWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  Divider(height: 1, color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100),
+                  Divider(height: 1, color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100),
                   const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,

@@ -256,7 +256,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
         borderRadius: BorderRadius.circular(28),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.bloodRed.withValues(alpha: 0.3),
+            color: AppTheme.bloodRed.withOpacity(0.3),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -281,7 +281,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.2),
+                  color: Colors.white.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Row(
@@ -323,7 +323,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
                   Text(
                     'DONOR ID: ${uid.substring(0, 8).toUpperCase()}',
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.75),
+                      color: Colors.white.withOpacity(0.75),
                       fontSize: 11,
                       fontWeight: FontWeight.w500,
                     ),
@@ -332,7 +332,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
                   Text(
                     'BLOOD GROUP',
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.65),
+                      color: Colors.white.withOpacity(0.65),
                       fontSize: 9,
                       fontWeight: FontWeight.bold,
                     ),
@@ -355,7 +355,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.1),
+                      color: Colors.black.withOpacity(0.1),
                       blurRadius: 6,
                       offset: const Offset(0, 3),
                     ),
@@ -398,7 +398,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
         borderRadius: BorderRadius.circular(28),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: Colors.black.withOpacity(0.2),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -420,7 +420,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
                   letterSpacing: 1.5,
                 ),
               ),
-              Icon(Icons.info_outline, color: Colors.white.withValues(alpha: 0.5), size: 18),
+              Icon(Icons.info_outline, color: Colors.white.withOpacity(0.5), size: 18),
             ],
           ),
           
@@ -440,7 +440,7 @@ class _DigitalBloodCardScreenState extends State<DigitalBloodCardScreen> with Si
             child: Text(
               'Tap to Flip Back',
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.4),
+                color: Colors.white.withOpacity(0.4),
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
               ),

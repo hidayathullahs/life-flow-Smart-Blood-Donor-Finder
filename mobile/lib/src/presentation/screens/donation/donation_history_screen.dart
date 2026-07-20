@@ -31,7 +31,7 @@ class DonationHistoryScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(28),
                 boxShadow: [
                   BoxShadow(
-                    color: AppTheme.bloodRed.withValues(alpha: 0.25),
+                    color: AppTheme.bloodRed.withOpacity(0.25),
                     blurRadius: 20,
                     offset: const Offset(0, 10),
                   ),
@@ -46,7 +46,7 @@ class DonationHistoryScreen extends StatelessWidget {
                       Text(
                         'TOTAL IMPACT POINTS',
                         style: TextStyle(
-                          color: Colors.white.withValues(alpha: 0.8),
+                          color: Colors.white.withOpacity(0.8),
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.5,
@@ -140,12 +140,12 @@ class DonationHistoryScreen extends StatelessWidget {
               color: isDark ? AppTheme.darkCard : Colors.white,
               shape: BoxShape.circle,
               border: Border.all(
-                color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                 width: 1.5,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.02),
+                  color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -194,7 +194,7 @@ class DonationHistoryScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: 2.5,
-                    color: AppTheme.bloodRed.withValues(alpha: 0.2),
+                    color: AppTheme.bloodRed.withOpacity(0.2),
                   ),
                 ),
             ],
@@ -210,12 +210,12 @@ class DonationHistoryScreen extends StatelessWidget {
                 color: isDark ? AppTheme.darkCard : Colors.white,
                 borderRadius: BorderRadius.circular(24),
                 border: Border.all(
-                  color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                  color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                   width: 1.5,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.02),
+                    color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
                     blurRadius: 12,
                     offset: const Offset(0, 6),
                   ),

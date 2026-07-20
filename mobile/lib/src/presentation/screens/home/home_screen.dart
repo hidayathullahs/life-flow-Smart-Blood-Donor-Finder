@@ -67,7 +67,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppTheme.bloodRed.withValues(alpha: isDarkMode ? 0.05 : 0.03),
+                color: AppTheme.bloodRed.withOpacity(isDarkMode ? 0.05 : 0.03),
               ),
             ),
           ),
@@ -163,12 +163,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                       borderRadius: BorderRadius.circular(32),
                       border: Border.all(
-                        color: AppTheme.bloodRed.withValues(alpha: isDarkMode ? 0.2 : 0.15),
+                        color: AppTheme.bloodRed.withOpacity(isDarkMode ? 0.2 : 0.15),
                         width: 1.5,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: AppTheme.bloodRed.withValues(alpha: 0.03),
+                          color: AppTheme.bloodRed.withOpacity(0.03),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
@@ -182,7 +182,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: AppTheme.bloodRed.withValues(alpha: 0.1),
+                                color: AppTheme.bloodRed.withOpacity(0.1),
                                 shape: BoxShape.circle,
                               ),
                               child: const Icon(
@@ -438,12 +438,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               color: isDarkMode ? AppTheme.darkCard : Colors.white,
                               borderRadius: BorderRadius.circular(24),
                               border: Border.all(
-                                color: isDarkMode ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+                                color: isDarkMode ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
                                 width: 1.5,
                               ),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withValues(alpha: isDarkMode ? 0.2 : 0.02),
+                                  color: Colors.black.withOpacity(isDarkMode ? 0.2 : 0.02),
                                   blurRadius: 12,
                                   offset: const Offset(0, 4),
                                 ),
@@ -470,8 +470,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                                 decoration: BoxDecoration(
                                   color: isHighUrgency 
-                                    ? AppTheme.bloodRed.withValues(alpha: 0.1) 
-                                    : AppTheme.warningOrange.withValues(alpha: 0.1),
+                                    ? AppTheme.bloodRed.withOpacity(0.1) 
+                                    : AppTheme.warningOrange.withOpacity(0.1),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Text(
@@ -516,12 +516,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         color: isDark ? AppTheme.darkCard : Colors.white,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+          color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.02),
+            color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -533,7 +533,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.1),
+              color: color.withOpacity(0.1),
               shape: BoxShape.circle,
             ),
             child: Icon(icon, color: color, size: 20),
@@ -569,12 +569,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             color: isDark ? AppTheme.darkCard : Colors.white,
             borderRadius: BorderRadius.circular(24),
             border: Border.all(
-              color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+              color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
               width: 1.5,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.02),
+                color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -609,12 +609,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         color: isDark ? AppTheme.darkCard : Colors.white,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+          color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.02),
+            color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),

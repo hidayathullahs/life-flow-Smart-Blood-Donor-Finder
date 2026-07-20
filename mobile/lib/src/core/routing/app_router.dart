@@ -125,7 +125,7 @@ class AppRouter {
                 Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: AppTheme.bloodRed.withValues(alpha: 0.1),
+                    color: AppTheme.bloodRed.withOpacity(0.1),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(

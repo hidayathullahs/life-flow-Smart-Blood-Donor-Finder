@@ -76,17 +76,17 @@ class AppBottomNavigationBar extends StatelessWidget {
           margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            color: isDark ? AppTheme.darkCard.withValues(alpha: 0.95) : Colors.white.withValues(alpha: 0.95),
+            color: isDark ? AppTheme.darkCard.withOpacity(0.95) : Colors.white.withOpacity(0.95),
             borderRadius: BorderRadius.circular(28),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.08),
+                color: Colors.black.withOpacity(isDark ? 0.3 : 0.08),
                 blurRadius: 24,
                 offset: const Offset(0, 8),
               ),
             ],
             border: Border.all(
-              color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.shade100,
+              color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
               width: 1.5,
             ),
           ),
@@ -146,7 +146,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppTheme.bloodRed.withValues(alpha: 0.4),
+                    color: AppTheme.bloodRed.withOpacity(0.4),
                     blurRadius: 16,
                     offset: const Offset(0, 6),
                   ),
