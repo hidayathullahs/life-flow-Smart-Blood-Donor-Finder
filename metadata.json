@@ -1,0 +1,6 @@
+{
+  "name": "Smart Blood Life",
+  "description": "A premium mobile experience for blood donor tracking, urgent blood requests, health compatibility checks, and a Gemini-powered AI Health Assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

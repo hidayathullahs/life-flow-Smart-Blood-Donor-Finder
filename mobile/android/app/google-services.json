@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "160813090752",
+    "project_id": "smartlifeblood",
+    "storage_bucket": "smartlifeblood.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160813090752:android:f7a98d09c444066a496a25",
+        "android_client_info": {
+          "package_name": "com.smartbloodlife.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwqX1ZTN05LeB_rHzy3-zMH5n0MFklRhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
