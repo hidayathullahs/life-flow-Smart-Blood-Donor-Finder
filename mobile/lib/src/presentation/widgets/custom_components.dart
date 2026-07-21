@@ -2,6 +2,290 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:smart_blood_life/src/core/theme/app_theme.dart';
 
+// ─────────────────────────────────────────────────────────
+// SmartMatchPill  – matches the website's "Smart Match Active" badge
+// ─────────────────────────────────────────────────────────
+class SmartMatchPill extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final Color? color;
+
+  const SmartMatchPill({
+    super.key,
+    this.label = 'Smart Match Active',
+    this.icon = Icons.auto_awesome,
+    this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final c = color ?? AppTheme.secondaryBlue;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: c.withOpacity(isDark ? 0.15 : 0.08),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: c.withOpacity(0.25)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 13, color: c),
+          const SizedBox(width: 5),
+          Text(
+            label.toUpperCase(),
+            style: TextStyle(
+              color: c,
+              fontSize: 10,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// PulsingDot  – animated green availability dot (mirrors website)
+// ─────────────────────────────────────────────────────────
+class PulsingDot extends StatefulWidget {
+  final Color color;
+  final double size;
+
+  const PulsingDot({
+    super.key,
+    this.color = AppTheme.successGreen,
+    this.size = 8,
+  });
+
+  @override
+  State<PulsingDot> createState() => _PulsingDotState();
+}
+
+class _PulsingDotState extends State<PulsingDot>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _ctrl;
+  late Animation<double> _anim;
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )..repeat(reverse: true);
+    _anim = Tween<double>(begin: 0.4, end: 1.0).animate(
+      CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _anim,
+      builder: (_, __) => Opacity(
+        opacity: _anim.value,
+        child: Container(
+          width: widget.size,
+          height: widget.size,
+          decoration: BoxDecoration(
+            color: widget.color,
+            shape: BoxShape.circle,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// EliteDonorBadge  – gold ribbon for donors with 5+ donations (matches web)
+// ─────────────────────────────────────────────────────────
+class EliteDonorBadge extends StatelessWidget {
+  const EliteDonorBadge({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFFF59E0B), Color(0xFFD97706)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFFF59E0B).withOpacity(0.3),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: const Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('⭐', style: TextStyle(fontSize: 10)),
+          SizedBox(width: 4),
+          Text(
+            'ELITE',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 10,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 0.5,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// StatCardWidget  – matches web's glassmorphic stat card with gradient icon
+// ─────────────────────────────────────────────────────────
+class StatCardWidget extends StatelessWidget {
+  final String label;
+  final num value;
+  final IconData icon;
+  final List<Color> gradient;
+  final String suffix;
+
+  const StatCardWidget({
+    super.key,
+    required this.label,
+    required this.value,
+    required this.icon,
+    required this.gradient,
+    this.suffix = '',
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: isDark ? AppTheme.darkCard : Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
+          width: 1.5,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: gradient,
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(14),
+              boxShadow: [
+                BoxShadow(
+                  color: gradient.first.withOpacity(0.35),
+                  blurRadius: 8,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Icon(icon, color: Colors.white, size: 22),
+          ),
+          const SizedBox(height: 16),
+          AnimatedCountUp(
+            targetValue: value,
+            suffix: suffix,
+            style: const TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              letterSpacing: -0.5,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              color: isDark ? Colors.white54 : Colors.grey.shade600,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// ResultsCountBanner  – shows number of results with smart-match context
+// ─────────────────────────────────────────────────────────
+class ResultsCountBanner extends StatelessWidget {
+  final int count;
+  final String bloodGroup;
+
+  const ResultsCountBanner({
+    super.key,
+    required this.count,
+    required this.bloodGroup,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      color: isDark ? AppTheme.darkBg : const Color(0xFFF8FAFC),
+      child: Row(
+        children: [
+          Text(
+            '$count ',
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+              color: AppTheme.bloodRed,
+            ),
+          ),
+          Text(
+            bloodGroup == 'All'
+                ? 'verified donors found'
+                : '$bloodGroup donors found',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+              color: isDark ? Colors.white70 : Colors.black87,
+            ),
+          ),
+          const Spacer(),
+          const SmartMatchPill(),
+        ],
+      ),
+    );
+  }
+}
+
 class PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
@@ -518,6 +802,39 @@ class DonorCardWidget extends StatelessWidget {
                             const SizedBox(height: 8),
                             Row(
                               children: [
+                                // Pulsing dot + Availability (matches web animated indicator)
+                                if (isEligible) ...[
+                                  const PulsingDot(),
+                                  const SizedBox(width: 5),
+                                  const Text(
+                                    'Available Now',
+                                    style: TextStyle(
+                                      color: AppTheme.successGreen,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ] else ...[
+                                  Container(
+                                    width: 8,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                      color: isDark ? Colors.white30 : Colors.grey.shade400,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Text(
+                                    'On Cooldown',
+                                    style: TextStyle(
+                                      color: isDark ? AppTheme.warningOrange : const Color(0xFFE65100),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                                const SizedBox(width: 8),
+                                // Fast response chip
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                   decoration: BoxDecoration(
@@ -533,7 +850,7 @@ class DonorCardWidget extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 4),
                                       Text(
-                                        'Responds in 5m',
+                                        'Fast Response',
                                         style: TextStyle(
                                           color: isDark ? AppTheme.successGreen : const Color(0xFF2E7D32),
                                           fontSize: 11,
@@ -541,26 +858,6 @@ class DonorCardWidget extends StatelessWidget {
                                         ),
                                       ),
                                     ],
-                                  ),
-                                ),
-                                const SizedBox(width: 8),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                  decoration: BoxDecoration(
-                                    color: isEligible
-                                        ? (isDark ? const Color(0xFF0F1E33) : const Color(0xFFE3F2FD))
-                                        : (isDark ? const Color(0xFF33200F) : const Color(0xFFFFF3E0)),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  child: Text(
-                                    isEligible ? 'Available' : 'On Cooloff',
-                                    style: TextStyle(
-                                      color: isEligible
-                                          ? (isDark ? AppTheme.secondaryBlue : const Color(0xFF1565C0))
-                                          : (isDark ? AppTheme.warningOrange : const Color(0xFFE65100)),
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.bold,
-                                    ),
                                   ),
                                 ),
                               ],

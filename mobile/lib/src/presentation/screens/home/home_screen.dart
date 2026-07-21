@@ -12,6 +12,7 @@ import 'package:smart_blood_life/src/presentation/providers/theme_provider.dart'
 import 'package:smart_blood_life/src/presentation/widgets/bottom_nav_bar.dart';
 import 'package:smart_blood_life/src/presentation/widgets/custom_components.dart';
 
+
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
@@ -30,6 +31,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     'totalDonations': 0,
     'uniqueCities': 0,
   };
+
 
   @override
   void initState() {
@@ -78,6 +80,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Smart Match Status Pills (top of screen, mirrors website's banner badges)
+                  const Row(
+                    children: [
+                      SmartMatchPill(),
+                      SizedBox(width: 8),
+                      SmartMatchPill(
+                        label: 'Live Stats',
+                        icon: Icons.bar_chart,
+                        color: AppTheme.bloodRed,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  
                   // Personal Greeting Row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -240,7 +256,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                   const SizedBox(height: 28),
                   
-                  // Statistics Grid Redesign
+                  // ── 4-Stat Grid (matches website StatsSection) ──────────
                   Text(
                     'Network Directory',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -248,28 +264,48 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       letterSpacing: -0.5,
                     ),
                   ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Live platform statistics across India',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: isDarkMode ? Colors.white54 : Colors.black45,
+                    ),
+                  ),
                   const SizedBox(height: 16),
                   
-                  Row(
+                  GridView.count(
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisSpacing: 14,
+                    mainAxisSpacing: 14,
+                    childAspectRatio: 1.3,
                     children: [
-                      Expanded(
-                        child: _buildNewStatCard(
-                          context,
-                          'Total Donors',
-                          _stats['totalDonors'],
-                          Icons.people_outline,
-                          AppTheme.secondaryBlue,
-                        ),
+                      StatCardWidget(
+                        label: 'Registered Donors',
+                        value: _stats['totalDonors'] ?? 0,
+                        icon: Icons.people_outline,
+                        gradient: const [Color(0xFFE53935), Color(0xFFEF5350)],
                       ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: _buildNewStatCard(
-                          context,
-                          'Available Now',
-                          _stats['activeDonors'],
-                          Icons.check_circle_outline,
-                          AppTheme.successGreen,
-                        ),
+                      StatCardWidget(
+                        label: 'Lives Saved',
+                        value: (_stats['totalDonations'] ?? 0) * 3,
+                        icon: Icons.favorite_outline,
+                        gradient: const [Color(0xFFEC4899), Color(0xFFE53935)],
+                      ),
+                      StatCardWidget(
+                        label: 'Cities Covered',
+                        value: _stats['uniqueCities'] ?? 0,
+                        icon: Icons.location_city_outlined,
+                        gradient: const [Color(0xFFF97316), Color(0xFFE53935)],
+                        suffix: '+',
+                      ),
+                      StatCardWidget(
+                        label: 'Available Today',
+                        value: _stats['activeDonors'] ?? 0,
+                        icon: Icons.check_circle_outline,
+                        gradient: const [Color(0xFF10B981), Color(0xFF059669)],
                       ),
                     ],
                   ),
@@ -507,55 +543,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  Widget _buildNewStatCard(BuildContext context, String label, num? value, IconData icon, Color color) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    
-    return Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: isDark ? AppTheme.darkCard : Colors.white,
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(
-          color: isDark ? Colors.white.withOpacity(0.05) : Colors.grey.shade100,
-          width: 1.5,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(isDark ? 0.2 : 0.02),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(icon, color: color, size: 20),
-          ),
-          const SizedBox(height: 16),
-          AnimatedCountUp(
-            targetValue: value ?? 0,
-            style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold, letterSpacing: -0.5),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              color: isDark ? Colors.white54 : Colors.grey.shade600,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
 
   Widget _buildNavBtn(BuildContext context, String label, IconData icon, String route) {
     final isDark = Theme.of(context).brightness == Brightness.dark;

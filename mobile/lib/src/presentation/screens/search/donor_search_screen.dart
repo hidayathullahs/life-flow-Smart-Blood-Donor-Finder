@@ -294,24 +294,35 @@ class _DonorSearchScreenState extends State<DonorSearchScreen> {
                       return _buildEmptyState(context);
                     }
 
-                    return ListView.builder(
-                      padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 110.0), // Padding for bottom navigation
-                      itemCount: filtered.length,
-                      itemBuilder: (context, index) {
-                        final donor = filtered[index];
-                        return DonorCardWidget(
-                          name: donor.name,
-                          bloodGroup: donor.bloodGroup,
-                          city: donor.city,
-                          verified: donor.verified,
-                          age: donor.age,
-                          gender: donor.gender,
-                          isEligible: donor.isEligibleToDonate,
-                          onCall: () {},
-                          onWhatsApp: () {},
-                          onTap: () => context.push('/donor/${donor.id}'),
-                        );
-                      },
+                    return Column(
+                      children: [
+                        // Results count banner (matches web's results header)
+                        ResultsCountBanner(
+                          count: filtered.length,
+                          bloodGroup: _selectedBloodGroup,
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 110.0),
+                            itemCount: filtered.length,
+                            itemBuilder: (context, index) {
+                              final donor = filtered[index];
+                              return DonorCardWidget(
+                                name: donor.name,
+                                bloodGroup: donor.bloodGroup,
+                                city: donor.city,
+                                verified: donor.verified,
+                                age: donor.age,
+                                gender: donor.gender,
+                                isEligible: donor.isEligibleToDonate,
+                                onCall: () {},
+                                onWhatsApp: () {},
+                                onTap: () => context.push('/donor/${donor.id}'),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),
